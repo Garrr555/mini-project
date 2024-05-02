@@ -3,45 +3,42 @@ import React, { useState } from 'react';
 import { useRouter } from "next/router";
 import { FormEvent } from 'react';
 import Image from "next/image";
+import { signIn } from "next-auth/react";
 
-export default function RegisterView(){
+export default function LoginView(){
 
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
 
-    const {push} = useRouter()
+    const {push, query} = useRouter();
+    const callbackUrl: any = query.callbackUrl || '/';
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(true);
         setError('');
         const form = event.target as HTMLFormElement;
-        const data = {
-            email: form.email.value,         //masih curiga ini error
-            fullname: form.fullname.value,
-            phone: form.phone.value,
+       try {
+        const res = await signIn("credentials", {
+            redirect: false,
+            email: form.email.value,
             password: form.password.value,
-
-        }
-
-        const result = await fetch('/api/user/register', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data),
+            callbackUrl
         })
 
-        if (result.status === 200) {
+        if(!res?.error){           //autentikasi error
+            setIsLoading(false);
             form.reset();
-            setIsLoading(false)
-            push("/auth/login")
+            push(callbackUrl);
         }
         else{
             setIsLoading(false);
-            setError('Email is already registered')
-            console.log('error');
-            
+            setError("Email or password is incorrect else")
         }
+       }
+       catch(error){
+        setIsLoading(false);
+        setError("Email or password is incorrect catch")
+       }
     }
 
     return(
@@ -53,7 +50,7 @@ export default function RegisterView(){
             width={183}
             alt=""
           ></Image>
-             <h1 className="text-4xl font-bold mb-8 mt-24">Register</h1>
+             <h1 className="text-4xl font-bold mb-8 mt-24">Login</h1>
              {error && <div className="text-red-500">{error}</div>}
         <div>
             <form onSubmit={handleSubmit} className="">
@@ -62,22 +59,12 @@ export default function RegisterView(){
                     <input name="email" id="email" type="email" className="bg-transparent border-none rounded-full text-[#241C1C] py-5 px-6 focus:outline-none"/>
                 </div>
 
-                <div className="mx-auto flex w-[319px] h-[63px] rounded-full justify-end items-center bg-[#F5F4F2] my-4">
-                    <label htmlFor="fullname" className="text-[#241C1C]">username</label>
-                    <input name="fullname" id="fullname" type="text" className="bg-transparent border-none rounded-full text-[#241C1C] py-5 px-6 focus:outline-none"/>
-                </div>
-
-                <div className="mx-auto flex w-[319px] h-[63px] rounded-full justify-end items-center gap-5 bg-[#F5F4F2] my-4">
-                    <label htmlFor="phone" className="text-[#241C1C]">phone</label>
-                    <input name="phone" id="phone" type="text" className="bg-transparent border-none rounded-full text-[#241C1C] py-5 px-6 focus:outline-none"/>
-                </div>
-
                 <div className="mx-auto flex w-[319px] h-[63px] rounded-full justify-end items-center  bg-[#F5F4F2] my-4">
                     <label htmlFor="password" className="text-[#241C1C]">password</label>
                     <input name="password" id="password" type="password" className="bg-transparent border-none rounded-full text-[#241C1C] py-5 px-6 focus:outline-none"/>
                 </div>
                 <button type="submit" className="mt-6 p-1 rounded-full w-[319px] h-[63px] bg-[#E42C14] hover:bg-opacity-80 transition duration-300 ease-in-out text-[#F5F4F2] font-bold text-xl">
-                {isLoading ? 'Loading...' : 'REGISTER'}
+                {isLoading ? 'Loading...' : 'LOGIN'}
                 </button>
             </form>
 
@@ -101,7 +88,7 @@ export default function RegisterView(){
           ></Image>
             </div>
 
-            <p className="mt-8">Already have an account? <Link href="/auth/login"> <i className="text-[#0E8BF1] ">Login</i></Link>  </p>
+            <p className="mt-8">{"Don't have an account yet?"} <Link href="/auth/register"> <i className="text-[#0E8BF1] ">Sign Up</i></Link>  </p>
         </div>
         </div>
         
