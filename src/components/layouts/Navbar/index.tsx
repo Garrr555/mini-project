@@ -1,28 +1,37 @@
 
 import LoginPage from "@/pages/auth/login";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faComment } from "@fortawesome/free-solid-svg-icons";
 import { signIn, signOut, useSession } from "next-auth/react"
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
 
     const {data} = useSession()
 
     return(
-        <div className="flex bg-[#FBFAFF] w-[1798px] mx-auto justify-between items-center border-x border-t border-gray-200 shadow-lg pb-3">
-            <div className="gambar flex items-center gap-0">
-                <div className="-ml-5">
-                <Image
-            className="mx-auto"
-            src={"/furnitur.png"}
-            height={101}
-            width={136}
-            alt=""
-          ></Image>
-                </div>
+      <div className="bg-[#FBFAFF] w-full fixed mx-auto z-10">
+           <div className="flex bg-[#FBFAFF] w-[1450px] mx-auto justify-between items-center pb-3">
 
-          <p className="-ml-8 text-[#97404C] text-2xl font-semibold">Furniturpedia</p>
-            </div>
+           <Link href="/">
+           <div className="gambar flex items-center gap-0 cursor-pointer">
+             
+             <div className="-ml-5">
+             <Image
+         className="mx-auto"
+         src={"/furnitur.png"}
+         height={101}
+         width={136}
+         alt=""
+       ></Image>
+             </div>
 
+       <p className="-ml-8 text-[#97404C] text-2xl font-semibold">Furniturpedia</p>
+         </div>
+                
+            </Link>
           <div className="search w-[390px] h-[50px] rounded-full bg-white border border-[#D1D2E2] flex justify-center items-center">
             <div className="w-[316px] rounded-l-full ">
                 <input type="text" placeholder="Search..." className="mx-2 px-3 focus:outline-none w-[300px]"/>
@@ -38,11 +47,28 @@ const Navbar = () => {
             </div>
               
           </div>
+         
+          <div className="flex items-center justify-center gap-8">
 
-          <div className={`px-5 py-2 mx-3 border rounded-full h-[40px] flex items-center ${data ? `bg-[#E42C14]` : `bg-green-600`}`}>
+          <div className="text-2xl">
+          <FontAwesomeIcon icon={faComment} />
+          </div>
+
+          <div >
+          <Link href="/cart">
+            <div className="text-2xl">
+            <FontAwesomeIcon icon={faCartShopping} />
+            </div>
+          </Link>
+          </div>
+
+          <div className={`px-5 py-2 border rounded-full h-[40px] flex items-center ${data ? `bg-[#E42C14]` : `bg-green-600`}`}>
           <button className={`text-lg text-white font-semibold`} onClick={() => (data ? signOut() : signIn())}>{data ? 'Logout' : 'Login'}</button>
           </div>
+          </div>
+          
         </div>
+      </div>
        
     )
 }

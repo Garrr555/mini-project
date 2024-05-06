@@ -3,6 +3,10 @@ import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
 import styles from "../../src/app/globals.css";
 import Footer from "@/components/layouts/footer";
+import ProductPage from "./products";
+import ProductsView from "@/components/views/products";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function App({Component, pageProps: {session, ...pageProps}}: AppProps){
     return(

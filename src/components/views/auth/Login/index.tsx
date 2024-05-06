@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { FormEvent } from 'react';
 import Image from "next/image";
 import { signIn } from "next-auth/react";
+import Input from "@/components/ui/Input";
 
 export default function LoginView(){
 
@@ -54,15 +55,10 @@ export default function LoginView(){
              {error && <div className="text-red-500">{error}</div>}
         <div>
             <form onSubmit={handleSubmit} className="">
-                <div className="mx-auto flex w-[319px] h-[63px] rounded-full justify-end items-center gap-7 bg-[#F5F4F2] my-4">
-                    <label htmlFor="email" className="text-[#241C1C]">email </label>
-                    <input name="email" id="email" type="email" className="bg-transparent border-none rounded-full text-[#241C1C] py-5 px-6 focus:outline-none"/>
-                </div>
+                <Input label="email" name="email" type="email" gap="gap-7"/>
 
-                <div className="mx-auto flex w-[319px] h-[63px] rounded-full justify-end items-center  bg-[#F5F4F2] my-4">
-                    <label htmlFor="password" className="text-[#241C1C]">password</label>
-                    <input name="password" id="password" type="password" className="bg-transparent border-none rounded-full text-[#241C1C] py-5 px-6 focus:outline-none"/>
-                </div>
+                <Input label="password" name="password" type="password" gap=""/>
+
                 <button type="submit" className="mt-6 p-1 rounded-full w-[319px] h-[63px] bg-[#E42C14] hover:bg-opacity-80 transition duration-300 ease-in-out text-[#F5F4F2] font-bold text-xl">
                 {isLoading ? 'Loading...' : 'LOGIN'}
                 </button>

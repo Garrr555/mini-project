@@ -21,6 +21,20 @@ export async function retrieveDataBy(collectionName:string, id:string) {
     return data;
 }
 
+// export async function retriveDataByField(collectionName: String, field: string, value: string) {
+//     const q = query(
+//         collection(firestore, collectionName),
+//         where(field, '==', value)
+//     )
+
+//     const snapshot = await getDocs(q);
+//     const data = snapshot.docs.map((doc) => ({
+//         id: doc.id,
+//         ...doc.data(),
+//     }))
+//     return data;
+// }
+
 export async function signUp(
     userData:{ 
     email: string,
