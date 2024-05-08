@@ -1,7 +1,7 @@
 import Navbar from "@/components/layouts/Navbar";
 import { SessionProvider } from "next-auth/react";
 import { AppProps } from "next/app";
-import styles from "../../src/app/globals.css";
+import "../../src/app/globals.css";
 import Footer from "@/components/layouts/footer";
 import ProductPage from "./products";
 import ProductsView from "@/components/views/products";
@@ -11,7 +11,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 export default function App({Component, pageProps: {session, ...pageProps}}: AppProps){
     return(
         <SessionProvider session={session}>
-            <div className={styles.container}>
+            <div className="mx-auto">
                 <Navbar/>
             <Component {...pageProps}/>
             <Footer/>
