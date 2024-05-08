@@ -50,9 +50,12 @@ const Navbar = () => {
          
           <div className="flex items-center justify-center gap-8">
 
+          <Link href="/chatbot">
           <div className="text-2xl">
           <FontAwesomeIcon icon={faComment} />
           </div>
+          </Link>
+          
 
           <div >
           <Link href="/cart">

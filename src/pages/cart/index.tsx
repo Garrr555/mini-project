@@ -68,9 +68,19 @@ const CartPage: React.FC = () => {
 
   return (
     <div className='pt-48 pb-16 bg-[#f3f3f7]'>
-      <div className="bg-white w-[1000px] mx-auto">
+      <div className="bg-white w-[1000px] mx-auto rounded-md">
       {cartItems.length === 0 ? (
-        <p>Keranjang belanja Anda kosong.</p>
+        <div >
+          <p className="p-5 text-xl text-center h-[700px] flex items-center justify-center">Keranjang belanja Anda kosong.</p>
+
+          <div className="flex items-center gap-5 justify-end w-full ">
+            <p >{`Total (${totalProduk} Produk):`} <i className="font-bold text-[#E42C14]">Rp{totalHarga.toLocaleString()}</i> </p>
+            <button onClick={handleAddToCart} className="px-5 py-3 bg-[#E42C14] text-white">
+              Add <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
+        </div>
+        
       ) : (
         <div className="mx-auto flex justify-center flex-col items-center ">
           {Object.values(aggregatedCartItems).map((aggregatedItem, index) => (

@@ -30,7 +30,7 @@ interface Product {
         kategori: ["living", "bed"],
         color: 7,
         harga: 80000,
-        deskripsi: "coba",
+        deskripsi: "3D model of cabinet Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -39,7 +39,7 @@ interface Product {
         kategori: ["living", "bed", "kitchen", "bath", "other"],
         color: 7,
         harga: 40000,
-        deskripsi: "coba",
+        deskripsi: "3D model of floor Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -48,7 +48,7 @@ interface Product {
         kategori: ["living", "bed"],
         color: 8,
         harga: 20000,
-        deskripsi: "coba",
+        deskripsi: "3D model of grey Sofa Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -57,7 +57,7 @@ interface Product {
         kategori: ["living", "bed", "kitchen"],
         color: 7,
         harga: 20000,
-        deskripsi: "coba",
+        deskripsi: "3D model of wood floor Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -66,7 +66,7 @@ interface Product {
         kategori: ["garage", "other"],
         color: 7,
         harga: 40000,
-        deskripsi: "coba",
+        deskripsi: "3D model of shoe rack Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -75,7 +75,7 @@ interface Product {
         kategori: ["living", "bed", "other"],
         color: 7,
         harga: 35000,
-        deskripsi: "coba",
+        deskripsi: "3D model of chair Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -84,7 +84,7 @@ interface Product {
         kategori: ["living", "bed", "kitchen", "other"],
         color: 7,
         harga: 85000,
-        deskripsi: "coba",
+        deskripsi: "3D model of table Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -93,7 +93,7 @@ interface Product {
         kategori: ["living", "bed"],
         color: 7,
         harga: 100000,
-        deskripsi: "coba",
+        deskripsi: "3D model of sofa Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -102,7 +102,7 @@ interface Product {
         kategori: ["living", "bed"],
         color: 7,
         harga: 30000,
-        deskripsi: "coba",
+        deskripsi: "3D model of sofa Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -111,7 +111,7 @@ interface Product {
         kategori: ["living", "bed", "kitchen", "bath", "garage", "other"],
         color: 7,
         harga: 50000,
-        deskripsi: "coba",
+        deskripsi: "3D model of triple rack Available in brown, dark green and white",
         size: 174,
     },
     {
@@ -120,8 +120,8 @@ interface Product {
         kategori: ["living", "bed"],
         color: 7,
         harga: 90000,
-        deskripsi: "coba",
-        size: 195,
+        deskripsi: "3D model of sofa Available in brown, dark green and white",
+        size: 175,
     },
     {
         nama: "Small tree",
@@ -129,7 +129,7 @@ interface Product {
         kategori: "other",
         color: 7,
         harga: 10000,
-        deskripsi: "coba",
+        deskripsi: "3D model of small tree Available in brown, dark green and white",
         size: 320,
     },
     {
@@ -138,7 +138,7 @@ interface Product {
         kategori: "other",
         color: 7,
         harga: 10000,
-        deskripsi: "coba",
+        deskripsi: "3D model of tree Available in brown, dark green and white",
         size: 130,
     },
     {
@@ -147,7 +147,7 @@ interface Product {
         kategori: "other",
         color: 7,
         harga: 40000,
-        deskripsi: "coba",
+        deskripsi: "3D model of gazebo Available in brown, dark green and white",
         size: 250,
     },
     {
@@ -156,7 +156,7 @@ interface Product {
         kategori: "other",
         color: 7,
         harga: 60000,
-        deskripsi: "coba",
+        deskripsi: "3D model of stand Available in brown, dark green and white",
         size: 174,
     },
   ]

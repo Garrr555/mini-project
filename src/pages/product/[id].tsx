@@ -55,7 +55,7 @@ const ProductDetail: React.FC = () => {
       
       <p className="font-semibold text-[52px] mb-8">Rp{formattedHarga}</p>
       <div onClick={handleAddToCart} className="bg-[#E42C14] w-[115px] h-[39px] text-white rounded-lg flex justify-between items-center cursor-pointer">
-        <p className="font-semibold text-[22px] mx-auto">BUY</p>
+        <p className="font-semibold text-[22px] mx-auto">ADD</p>
         <div className="mx-auto">
         <FontAwesomeIcon icon={faCartShopping} />
         </div>
