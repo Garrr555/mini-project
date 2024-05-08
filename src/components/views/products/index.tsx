@@ -218,8 +218,8 @@ const filterProduk = (produk: Product) => {
   
 
     return(
-        <div className="pt-48 z-10 bg-[#f3f3f7] flex justify-center gap-36 items-center h-[1250px] overflow-hidden">
-            <div className="w-[380px] h-[1029px] bg-white text-start pl-10">
+        <div className="pt-48 z-10 bg-[#f3f3f7] px-5 flex justify-center gap-36 xl:h-[1250px] lg:h-[2250px] md:h-[2250px] sm:h-[2250px] overflow-hidden">
+            <div className="xl:w-[360px] lg:w-[380px] md:w-[380px] sm:w-[380px] h-[1029px]  bg-white text-start pl-10 mx-auto">
                 <p className="font-semibold text-[20px] mt-10">Category</p>
                 <div className="mt-5">
                     <div className="flex gap-2 my-2 items-center">
@@ -291,7 +291,7 @@ const filterProduk = (produk: Product) => {
             </div>
 
 
-            <div className=" w-[938.52px] h-[993.7px] bg-transparent flex flex-wrap justify-start gap-10 items-start">
+            <div className=" w-[940.52px] h-[93.7px] bg-transparent flex flex-wrap justify-start gap-8 items-start mx-auto">
             {product.filter(filterProduk).map((items, i) => (
           <ProductsShow
             key={i}

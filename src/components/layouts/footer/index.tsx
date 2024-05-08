@@ -2,8 +2,9 @@ import Image from "next/image";
 
 export default function Footer(){
     return(
-        <div className="flex bg-white w-[1798px] mx-auto justify-between items-center pb-10">
-            <div className="ml-40">
+       <div className="lg:w-[1450px] md:w-[1450px] sm:w-[950px] bg-white flex justify-center">
+         <div className="flex bg-white xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[950px] justify-between items-center pb-10">
+            <div className="sm:pl-0 pl-40">
             <div className="flex items-center gap-0">
             <div className="-ml-5">
                 <Image
@@ -31,11 +32,12 @@ export default function Footer(){
                 <p className="text-[#434343] text-lg">About Supply3dArsitek.com</p>
                 <p className="text-[#434343] text-lg">Privacy policy & terms</p>
             </div>
-            <div className="mr-56">
+            <div className="sm:pr-0 pr-56">
                 <p className="text-2xl mb-2">FOLLOW US ON</p>
                 <p className="text-[#434343] text-lg">Instagram</p>
                 <p className="text-[#434343] text-lg">Facebook</p>
             </div>
         </div>
+       </div>
     )
 }

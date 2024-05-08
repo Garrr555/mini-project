@@ -68,7 +68,7 @@ const CartPage: React.FC = () => {
 
   return (
     <div className='pt-48 pb-16 bg-[#f3f3f7]'>
-      <div className="bg-white w-[1000px] mx-auto rounded-md">
+      <div className="bg-white md:w-[1000px] sm:w-[950px] mx-auto rounded-md">
       {cartItems.length === 0 ? (
         <div >
           <p className="p-5 text-xl text-center h-[700px] flex items-center justify-center">Keranjang belanja Anda kosong.</p>

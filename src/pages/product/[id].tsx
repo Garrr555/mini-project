@@ -44,7 +44,7 @@ const ProductDetail: React.FC = () => {
 
   return (
     <div className=" bg-[#f3f3f7]  h-[850px] flex items-center">
-      <div className="w-[1105px] h-[500px]  flex mx-auto justify-center gap-10 ">
+      <div className="xl:w-[1105px] lg:w-[1105px] md:w-[1105px] sm:w-[950px] h-[500px]  flex mx-auto justify-center gap-10 ">
       <div className="bg-white rounded-lg w-[714px] h-[500px] flex justify-center items-center ">
       <Image src={`/furnitur/${gambar}.png`} alt='' width={400} height={400} />
       </div>

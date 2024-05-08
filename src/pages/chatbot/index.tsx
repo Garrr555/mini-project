@@ -228,7 +228,7 @@ export default function ChatBot(): JSX.Element {
       }
     };
     initChat();
-  });
+  }, []);
 
 //   const handleSendmessages = async () => {
 //     try {
@@ -366,7 +366,7 @@ const findProductInfo = (input: string): Product | undefined => {
   const { primary, secondary, accent, text } = getThemeColor();
 
   return (
-    <div className={`pt-36 flex flex-col h-screen p-4 ${primary}`}>
+    <div className={`pt-36 flex flex-col h-screen p-4 xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[950px] mx-auto ${primary}`}>
       <div className={`flex-1 overflow-y-auto py-5 px-5  ${secondary} rounded-xl p-2`}>
         {messages.map((msg, index) => (
           <div
