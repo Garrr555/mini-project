@@ -228,7 +228,7 @@ export default function ChatBot(): JSX.Element {
       }
     };
     initChat();
-  }, []);
+  }, [genAI, generationConfig, messages, safetySettings]);
 
 //   const handleSendmessages = async () => {
 //     try {
