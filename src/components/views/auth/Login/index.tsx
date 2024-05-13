@@ -12,7 +12,9 @@ export default function LoginView(){
     const [error, setError] = useState('')
 
     const {push, query} = useRouter();
+
     const callbackUrl: any = query.callbackUrl || '/';
+    
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(true);
@@ -43,7 +45,7 @@ export default function LoginView(){
     }
 
     return(
-        <div>
+        <div className="">
                 <Image
             className="mx-auto"
             src={"/Saly-10.png"}

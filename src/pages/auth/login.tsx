@@ -6,8 +6,8 @@ import LoginView from "@/components/views/auth/Login";
 export default function LoginPage (){
     return(
         //agar tailwind nya dapat digunakan
-        <div className="" > 
-            <div className="pt-32 flex justify-end items-center w-[1798px] h-[1041px] mx-auto " >
+        <div className="mx-auto" > 
+            <div className="pt-32 flex  justify-end items-center w-[1798px] h-[1041px] mx-auto " >
                 <div className="w-2/3 h-full bg-no-repeat bg-cover relative" style={{ backgroundImage: `url('/register.png')` }}>
                 <div className="w-[554px] h-[355px] bg-transparent left-[72px] top-[450px] absolute">
                     <div className="absolute bottom-0 left-5">

@@ -2,9 +2,10 @@ import Image from "next/image";
 
 export default function Footer(){
     return(
-       <div className="lg:w-[1450px] md:w-[1450px] sm:w-[950px] bg-white flex justify-center">
-         <div className="flex bg-white xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[950px] justify-between items-center pb-10">
-            <div className="sm:pl-0 pl-40">
+       <div className="xl:w-[1798px] lg:w-[1450px] md:w-[1450px] sm:w-[950px] md:h-[230px] sm:h-[500px] bg-white md:flex justify-center mx-auto">
+         <div className="sm:pl-0 md:pl-40 md:flex sm:flex-none mx-auto bg-white xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[1450px]  md:justify-between sm:justify-center items-center pb-10">
+            <div className="sm:flex sm:justify-center sm:py-3">
+            <div className="sm:w-[313px]">
             <div className="flex items-center gap-0">
             <div className="-ml-5">
                 <Image
@@ -21,22 +22,35 @@ export default function Footer(){
 
             <p className="w-[313px] pl-8 text-2xl mt-2">Berbagai kebutuhan interior rumah anda</p>
             </div>
+            </div>
+           
 
-            <div>
-                <p className="text-2xl mb-2">SERVICE</p>
+            <div className="sm:flex sm:justify-center ">
+            <div className="sm:w-[313px] sm:ml-16">
+                <p className="text-2xl mb-2 sm:pt-3 ">SERVICE</p>
                 <p className="text-[#434343] text-lg">3d Model</p>
                 <p className="text-[#434343] text-lg">Contact Us</p>
             </div>
-            <div>
-                <p className="text-2xl mb-2">SUPPORT</p>
+            </div>
+            
+            <div className="sm:flex sm:justify-center">
+            <div className="sm:w-[313px] sm:ml-16">
+                <p className="text-2xl mb-2 sm:pt-3">SUPPORT</p>
                 <p className="text-[#434343] text-lg">About Supply3dArsitek.com</p>
                 <p className="text-[#434343] text-lg">Privacy policy & terms</p>
             </div>
-            <div className="sm:pr-0 pr-56">
+            </div>
+           
+
+
+            <div className="sm:flex sm:justify-center">
+            <div className="sm:py-3 sm:w-[313px] sm:ml-16">
                 <p className="text-2xl mb-2">FOLLOW US ON</p>
                 <p className="text-[#434343] text-lg">Instagram</p>
                 <p className="text-[#434343] text-lg">Facebook</p>
             </div>
+            </div>
+            
         </div>
        </div>
     )

@@ -17,7 +17,7 @@ export default function RegisterView(){
         setError('');
         const form = event.target as HTMLFormElement;
         const data = {
-            email: form.email.value,         //masih curiga ini error
+            email: form.email.value,       
             fullname: form.fullname.value,
             phone: form.phone.value,
             password: form.password.value,

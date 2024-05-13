@@ -88,7 +88,7 @@ interface Product {
         size: 174,
     },
     {
-        nama: "Sofa",
+        nama: "TV rack",
         gambar: "9",
         kategori: ["living", "bed"],
         color: 7,
@@ -97,7 +97,7 @@ interface Product {
         size: 174,
     },
     {
-        nama: "Sofa",
+        nama: "Clothes rack",
         gambar: "10",
         kategori: ["living", "bed"],
         color: 7,
@@ -115,7 +115,7 @@ interface Product {
         size: 174,
     },
     {
-        nama: "Sofa",
+        nama: "Rack",
         gambar: "12",
         kategori: ["living", "bed"],
         color: 7,
@@ -168,7 +168,6 @@ export default function ProductsView (){
   const [klikFilter, setKlikFilter] = useState("");
   const [maxPrice, setMaxPrice] = useState<number | null>(null);
   const [minPrice, setMinPrice] = useState<number | null>(null);
-  const containerRef = useRef(null);
   
 
   const handleFilter = (kategori: string) => {
@@ -188,10 +187,9 @@ export default function ProductsView (){
 
 
 const filterProduk = (produk: Product) => {
-    // Filter berdasarkan kategori
     if (filter !== "") {
       if (Array.isArray(produk.kategori)) {
-        // Jika kategori produk merupakan array
+        // Jika kategori produk array
         if (!produk.kategori.includes(filter)) {
           return false;
         }
@@ -218,7 +216,7 @@ const filterProduk = (produk: Product) => {
   
 
     return(
-        <div className="pt-48 z-10 bg-[#f3f3f7] px-5 flex justify-center gap-36 xl:h-[1250px] lg:h-[2250px] md:h-[2250px] sm:h-[2250px] overflow-hidden">
+        <div className="w-full pt-48 md:pl-40 sm:pl-0 md:pr-24 sm:pr-0 z-10 bg-[#f3f3f7] px-5 flex justify-center xl:gap-x-2 sm:gap-x-36  xl:h-[1250px] lg:h-[2250px] md:h-[2250px] sm:h-[2250px] overflow-hidden">
             <div className="xl:w-[360px] lg:w-[380px] md:w-[380px] sm:w-[380px] h-[1029px]  bg-white text-start pl-10 mx-auto">
                 <p className="font-semibold text-[20px] mt-10">Category</p>
                 <div className="mt-5">
@@ -291,7 +289,7 @@ const filterProduk = (produk: Product) => {
             </div>
 
 
-            <div className=" w-[940.52px] h-[93.7px] bg-transparent flex flex-wrap justify-start gap-8 items-start mx-auto">
+            <div className=" w-[940.52px] h-[93.7px]  bg-transparent flex flex-wrap justify-start gap-8 items-start mx-auto">
             {product.filter(filterProduk).map((items, i) => (
           <ProductsShow
             key={i}

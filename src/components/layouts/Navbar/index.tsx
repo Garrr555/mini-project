@@ -12,7 +12,7 @@ const Navbar = () => {
     const {data} = useSession()
 
     return(
-      <div className="bg-[#FBFAFF] xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[950px] mx-auto fixed left-0 right-0 z-10">
+      <div className="bg-[#FBFAFF] xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[950px] mx-auto fixed left-0 right-0 z-10 shadow-xl">
            <div className="flex bg-[#FBFAFF] mx-auto  xl:w-[1450px] lg:w-[950px] md:w-[950px] sm:w-[950px] justify-between items-center pb-3">
 
            <Link href="/">

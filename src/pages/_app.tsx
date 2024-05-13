@@ -11,9 +11,10 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 export default function App({Component, pageProps: {session, ...pageProps}}: AppProps){
     return(
         <SessionProvider session={session}>
-            <div className="mx-auto bg-[#f3f3f7] w-full">
+            <div className="mx-auto bg-white w-full">
                 <Navbar/>
             <Component {...pageProps}/>
+            <Footer/>
         </div>
         </SessionProvider>
     )

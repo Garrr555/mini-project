@@ -230,33 +230,59 @@ export default function ChatBot(): JSX.Element {
     initChat();
   }, []);
 
-//   const handleSendmessages = async () => {
-//     try {
-//       const userMessage: Message = {
-//         text: userInput,
-//         role: "user",
-//         timestamp: new Date(),
-//       };
+const handleSendmessages = async () => {
+  try {
+    const userMessage: Message = {
+      text: userInput,
+      role: "user",
+      timestamp: new Date(),
+    };
 
-//       setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-//       setUserInput("");
+    setUserInput("");
 
-//       if (chat) {
-//         const result = await chat.sendMessage(userInput);
-//         const botMessage: Message = {
-//           text: result.response.text(),
-//           role: "bot",
-//           timestamp: new Date(),
-//         };
+    if (isProductQuestion(userInput)) {
+      // Jika pertanyaan terkait produk
+      const productInfo = findProductInfo(userInput);
+      if (productInfo) {
+        const botMessage: Message = {
+          text: formatProductInfo(productInfo),
+          role: "bot",
+          timestamp: new Date(),
+        };
+        setMessages((prevMessages) => [...prevMessages, botMessage]);
+      } else {
+        // Jika produk tidak ditemukan
+        const botMessage: Message = {
+          text: "Maaf, produk tidak ditemukan.",
+          role: "bot",
+          timestamp: new Date(),
+        };
+        setMessages((prevMessages) => [...prevMessages, botMessage]);
+      }
+    } else {
+      // Jika bukan pertanyaan terkait produk, minta respons dari ChatBot
+      if (chat) {
+        const result = await chat.sendMessage(userInput);
+        const botMessage: Message = {
+          text: result.response.text(),
+          role: "bot",
+          timestamp: new Date(),
+        };
+        setMessages((prevMessages) => [...prevMessages, botMessage]);
+      }
+    }
+  } catch (error) {
+    setError("failed");
+  }
+};
 
-//         setMessages((prevMessages) => [...prevMessages, botMessage]);
-//       }
-//     } catch (error) {
-//       setError("failed");
-//     }
-//   };
-
+// Fungsi untuk mendeteksi apakah pertanyaan terkait produk
+const isProductQuestion = (input: string): boolean => {
+  const productKeywords = ["product", "item", "barang", "produk"];
+  return productKeywords.some((keyword) => input.toLowerCase().includes(keyword));
+};
 
 // Fungsi untuk mencari informasi produk berdasarkan pertanyaan pengguna
 const findProductInfo = (input: string): Product | undefined => {
@@ -264,69 +290,10 @@ const findProductInfo = (input: string): Product | undefined => {
   return product.find((item) => item.nama.toLowerCase().includes(keyword));
 };
 
-  const handleSendmessages = async () => {
-    try {
-      const userMessage: Message = {
-        text: userInput,
-        role: "user",
-        timestamp: new Date(),
-      };
-  
-      setMessages((prevMessages) => [...prevMessages, userMessage]);
-  
-      setUserInput("");
-  
-      if (chat) {
-        let botMessage: Message;
-  
-        // Cek apakah pertanyaan pengguna terkait produk
-        if (isProductQuestion(userInput)) {
-          const productInfo = findProductInfo(userInput);
-          if (productInfo) {
-            botMessage = {
-              text: formatProductInfo(productInfo),
-              role: "bot",
-              timestamp: new Date(),
-            };
-          } else {
-            botMessage = {
-              text: "Maaf, produk tidak ditemukan.",
-              role: "bot",
-              timestamp: new Date(),
-            };
-          }
-        } else {
-          // Jika bukan pertanyaan terkait produk, minta ChatBot untuk merespons
-          const result = await chat.sendMessage(userInput);
-          botMessage = {
-            text: result.response.text(),
-            role: "bot",
-            timestamp: new Date(),
-          };
-        }
-  
-        setMessages((prevMessages) => [...prevMessages, botMessage]);
-      }
-    } catch (error) {
-      setError("failed");
-    }
-  };
-  
-  // Fungsi untuk mendeteksi apakah pertanyaan terkait produk
-  const isProductQuestion = (input: string): boolean => {
-    const productKeywords = ["product", "item", "barang", "produk"];
-    return productKeywords.some((keyword) => input.toLowerCase().includes(keyword));
-  };
-  
-  
-  // Fungsi untuk memformat informasi produk dalam bentuk teks
-  const formatProductInfo = (productInfo: Product): string => {
-    return `Nama: ${productInfo.nama}\nDeskripsi: ${productInfo.deskripsi}\nHarga: Rp${productInfo.harga}`;
-  };
-
-  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTheme(e.target.value);
-  };
+// Fungsi untuk memformat informasi produk dalam bentuk teks
+const formatProductInfo = (productInfo: Product): string => {
+  return `Nama: ${productInfo.nama}\nDeskripsi: ${productInfo.deskripsi}\nHarga: Rp${productInfo.harga}`;
+};
 
   const getThemeColor = () => {
     switch (theme) {
@@ -366,7 +333,8 @@ const findProductInfo = (input: string): Product | undefined => {
   const { primary, secondary, accent, text } = getThemeColor();
 
   return (
-    <div className={`pt-36 flex flex-col h-screen p-4 xl:w-full lg:w-[1450px] md:w-[1450px] sm:w-[950px] mx-auto ${primary}`}>
+    <div className="w-full mx-auto bg-white">
+      <div className={`pt-36 flex flex-col h-screen p-4 xl:w-[1850px] lg:w-[1850px] md:w-[1450px] sm:w-[1450px]  mx-auto justify-center ${primary} lg:pl-0 md:pl-40 md:pr-0 sm:pl-40 sm:pr-40`}>
       <div className={`flex-1 overflow-y-auto py-5 px-5  ${secondary} rounded-xl p-2`}>
         {messages.map((msg, index) => (
           <div
@@ -408,6 +376,7 @@ const findProductInfo = (input: string): Product | undefined => {
           send
         </button>
       </div>
+    </div>
     </div>
   );
 }

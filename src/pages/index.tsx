@@ -6,7 +6,7 @@ export default function Home() {
   
     return (
      
-        <main className="w-[1450px] mx-auto bg-[#f3f3f7]">
+        <main className="w-[1903px] mx-auto flex justify-center bg-[#f3f3f7]">
           <ProductPage/>
           </main>
       
