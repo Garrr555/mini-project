@@ -164,7 +164,7 @@ interface Product {
 
 export default function ProductsView (){
 
-    const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("");
   const [klikFilter, setKlikFilter] = useState("");
   const [maxPrice, setMaxPrice] = useState<number | null>(null);
   const [minPrice, setMinPrice] = useState<number | null>(null);
@@ -257,7 +257,7 @@ const filterProduk = (produk: Product) => {
                             <p className="text-center font-semibold text-[20px] text-[#6F7277] bg-[#BABABA] h-[52px] border-y border-l border-[#B3A6AC] rounded-tl-lg rounded-bl-lg flex items-center justify-center">Rp</p>
                         </div>
                         <div className="w-3/4">
-                            <input type="number" value={maxPrice || ''} onChange={handleMaxPriceChange}  className="text-[#B3A6AC] font-light text-[20px] text-center w-full focus:outline-none" placeholder="Max price"/>
+                            <input type="text" value={maxPrice || ''} onChange={handleMaxPriceChange}  className="text-[#B3A6AC] font-light text-[20px] text-center w-full focus:outline-none" placeholder="Max price"/>
                         </div>
                     </div>
                     <div className="my-4 flex justify-center items-center border border-[#B3A6AC] rounded-lg w-[213px] h-[52px]">
@@ -265,7 +265,7 @@ const filterProduk = (produk: Product) => {
                             <p className="text-center font-semibold text-[20px] text-[#6F7277] bg-[#BABABA] h-[52px] border-y border-l border-[#B3A6AC] rounded-tl-lg rounded-bl-lg flex items-center justify-center">Rp</p>
                         </div>
                         <div className="w-3/4">
-                            <input type="number" value={minPrice || ''} onChange={handleMinPriceChange}  className="text-[#B3A6AC] font-light text-[20px] text-center w-full focus:outline-none" placeholder="Min price"/>
+                            <input type="text" value={minPrice || ''} onChange={handleMinPriceChange}  className="text-[#B3A6AC] font-light text-[20px] text-center w-full focus:outline-none" placeholder="Min price"/>
                         </div>
                     </div>
                 </div>

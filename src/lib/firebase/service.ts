@@ -49,7 +49,7 @@ export async function signUp(
         if(!userData.role){
             userData.role = 'member'
         }
-        userData.password = await bcrypt.hash(userData.password, 10)
+        userData.password = await bcrypt.hash(userData.password, 10) // agar password user terenkripsi
 
         await addDoc(collection(firestore, 'users'), userData)
         .then(() => {

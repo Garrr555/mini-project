@@ -75,7 +75,8 @@ const CartPage: React.FC = () => {
     const updatedCartItems = [...cartItems];
     if (updatedCartItems[index].jumlah === 1) {
       updatedCartItems.splice(index, 1);
-    } else {
+    } 
+    else {
       updatedCartItems[index].jumlah -= 1;
     }
     setCartItems(updatedCartItems);
@@ -98,7 +99,8 @@ const CartPage: React.FC = () => {
   cartItems.forEach(item => {
     if (!aggregatedCartItems[item.nama]) {
       aggregatedCartItems[item.nama] = { item: item, jumlah: item.jumlah, totalHarga: item.harga * item.jumlah };
-    } else {
+    } 
+    else {
       aggregatedCartItems[item.nama].jumlah += item.jumlah;
       aggregatedCartItems[item.nama].totalHarga += item.harga * item.jumlah;
     }

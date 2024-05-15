@@ -9,8 +9,8 @@ export default function RegisterView(){
 
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
-
     const {push} = useRouter()
+    
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(true);

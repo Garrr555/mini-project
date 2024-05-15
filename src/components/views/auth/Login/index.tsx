@@ -10,7 +10,6 @@ export default function LoginView(){
 
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
-
     const {push, query} = useRouter();
 
     const callbackUrl: any = query.callbackUrl || '/';

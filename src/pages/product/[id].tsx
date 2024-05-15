@@ -39,6 +39,7 @@ const ProductDetail: React.FC = () => {
     if (existingCartItems) {
       updatedCartItems = JSON.parse(existingCartItems);
     }
+    
     updatedCartItems.push(newItem);
     localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
 

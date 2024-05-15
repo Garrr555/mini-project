@@ -170,6 +170,7 @@ const product: Product[] = [
     },
   ]
 
+
 export default function ChatBot(): JSX.Element {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState<string>("");
@@ -292,7 +293,7 @@ const findProductInfo = (input: string): Product | undefined => {
 
 // Fungsi untuk memformat informasi produk dalam bentuk teks
 const formatProductInfo = (productInfo: Product): string => {
-  return `Nama: ${productInfo.nama}\nDeskripsi: ${productInfo.deskripsi}\nHarga: Rp${productInfo.harga}`;
+  return `Nama: ${productInfo.nama} Deskripsi: ${productInfo.deskripsi} Harga: Rp${productInfo.harga}`;
 };
 
   const getThemeColor = () => {
@@ -345,7 +346,7 @@ const formatProductInfo = (productInfo: Product): string => {
           >
             <div className="">
             <span
-              className={`px-4 py-1 text-xl rounded-md ${
+              className={`px-4 pb-1 text-xl rounded-md ${
                 msg.role === "user" ? `${accent} text-white` : `bg-white ${text} `
               }`}
             >
@@ -353,7 +354,7 @@ const formatProductInfo = (productInfo: Product): string => {
             </span>
             </div>
            
-            <p className={`text-xs pt-2 mx-2 ${text} mt-1`}>
+            <p className={`text-xs pt-2 mx-2 ${text} mt-1 `}>
               {msg.role === "bot" ? "Penjual" : "You"} -{" "}
               {msg.timestamp.toLocaleTimeString()}
             </p>
